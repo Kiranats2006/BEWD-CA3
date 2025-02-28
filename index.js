@@ -21,6 +21,7 @@ app.post('/login', (req,res)=>{
     for(let i=0; i<users.length; i++){
         if(users[i].id==id && users[i].password==password){
             user=users[i];
+            break;
         }
     }
     const token=jsonWebToken.sign({id: user.id}, secretKey,{expiresIn:'10m'});
